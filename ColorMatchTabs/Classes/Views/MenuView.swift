@@ -8,28 +8,28 @@
 
 import UIKit
 
-class MenuView: UIView {
+@objc open class MenuView: UIView {
     
-    private(set) var navigationBar: UIView!
+    public var navigationBar: UIView!
     private(set) var tabs: ColorTabs!
-    private(set) var scrollMenu: ScrollMenu!
+    public var scrollMenu: ScrollMenu!
     private(set) var circleMenuButton: UIButton!
     
     private var shadowView: VerticalGradientView!
     
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
         
         commonInit()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         commonInit()
     }
     
-    override func willMove(toSuperview newSuperview: UIView?) {
+    override open func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
         
         layoutIfNeeded()
@@ -85,7 +85,7 @@ private extension MenuView {
 }
 
 // Layout
-private extension MenuView {
+public extension MenuView {
     
     func layoutNavigationBar() {
         navigationBar.translatesAutoresizingMaskIntoConstraints = false
@@ -103,7 +103,7 @@ private extension MenuView {
         tabs.bottomAnchor.constraint(equalTo: navigationBar.bottomAnchor, constant: -6).isActive = true
     }
     
-    func layoutScrollMenu() {
+    @objc dynamic func layoutScrollMenu() {
         scrollMenu.translatesAutoresizingMaskIntoConstraints = false
         scrollMenu.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         scrollMenu.topAnchor.constraint(equalTo: navigationBar.bottomAnchor).isActive = true
