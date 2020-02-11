@@ -120,7 +120,7 @@ open class ColorMatchTabsViewController: UITabBarController {
 }
 
 // setup
-private extension ColorMatchTabsViewController {
+extension ColorMatchTabsViewController {
     
     func setupIcons() {
         guard let dataSource = colorMatchTabDataSource else {
@@ -143,7 +143,7 @@ private extension ColorMatchTabsViewController {
         }
     }
     
-    func setupNavigationBar() {
+    public func setupNavigationBar() {
         navigationController?.navigationBar.shadowImage = UIImage(namedInCurrentBundle: "transparent_pixel")
         let pixelImage = UIImage(namedInCurrentBundle: "pixel")
         navigationController?.navigationBar.setBackgroundImage(pixelImage, for: .default)
